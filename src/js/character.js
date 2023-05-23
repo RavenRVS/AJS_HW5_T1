@@ -21,19 +21,11 @@ export default class Character {
     this.setСlassСharacteristics(this.type);
   }
 
-  setAttack(value) {
-    this.attack = value;
-  }
-
-  setDefence(value) {
-    this.defence = value;
-  }
-
   setСlassСharacteristics(type) {
     CLASSES.forEach((i) => {
       if (i.className === type) {
-        this.setAttack(i.attack);
-        this.setDefence(i.defence);
+        this.attack = i.attack;
+        this.defence = i.defence;
       }
     });
   }
