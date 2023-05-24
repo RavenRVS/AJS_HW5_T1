@@ -1,6 +1,6 @@
-import { CLASSES } from './classes';
+import { characterType } from './classes';
 
-const validTypes = CLASSES.map((i) => i.className);
+const validTypes = Object.values(characterType);
 
 export default class Character {
   constructor(name, type) {
@@ -18,15 +18,5 @@ export default class Character {
     this.type = type;
     this.health = 100;
     this.level = 1;
-    this.setСlassСharacteristics(this.type);
-  }
-
-  setСlassСharacteristics(type) {
-    CLASSES.forEach((i) => {
-      if (i.className === type) {
-        this.attack = i.attack;
-        this.defence = i.defence;
-      }
-    });
   }
 }

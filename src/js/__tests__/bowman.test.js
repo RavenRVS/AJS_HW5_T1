@@ -1,19 +1,19 @@
-import { CLASSES } from '../classes';
+import { characterType } from '../classes';
 import Bowman from '../bowman';
 
 test.each([
-  ['create class Bowman', 'Player1', {
+  ['create class Bowman', 'Player1', 'Bowman', {
     name: 'Player1',
-    type: CLASSES[0].className,
+    type: characterType.Bowman,
     health: 100,
     level: 1,
-    attack: CLASSES[0].attack,
-    defence: CLASSES[0].defence,
+    attack: 25,
+    defence: 25,
   }],
 ])(
   ('should %s by name %s and type %s'),
-  (option, name, expected) => {
-    const result = new Bowman(name);
+  (option, name, type, expected) => {
+    const result = new Bowman(name, type);
     expect(result).toEqual(expected);
   },
 );

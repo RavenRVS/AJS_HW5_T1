@@ -1,19 +1,19 @@
-import { CLASSES } from '../classes';
+import { characterType } from '../classes';
 import Undead from '../undead';
 
 test.each([
-  ['create class Undead', 'Player1', {
+  ['create class Undead', 'Player1', 'Undead', {
     name: 'Player1',
-    type: CLASSES[3].className,
+    type: characterType.Undead,
     health: 100,
     level: 1,
-    attack: CLASSES[3].attack,
-    defence: CLASSES[3].defence,
+    attack: 25,
+    defence: 25,
   }],
 ])(
   ('should %s by name %s and type %s'),
-  (option, name, expected) => {
-    const result = new Undead(name);
+  (option, name, type, expected) => {
+    const result = new Undead(name, type);
     expect(result).toEqual(expected);
   },
 );

@@ -1,17 +1,14 @@
 import Character from '../character';
-import { CLASSES } from '../classes';
 
 test.each([
-  ['create class', 'Player1', CLASSES[0].className, {
+  ['create class', 'Player1', 'Bowman', {
     name: 'Player1',
-    type: CLASSES[0].className,
+    type: 'Bowman',
     health: 100,
     level: 1,
-    attack: CLASSES[0].attack,
-    defence: CLASSES[0].defence,
   }],
 ])(
-  ('should %s by name %s and type %s'),
+  ('should %s with name %s and type %s'),
   (option, name, type, expected) => {
     const result = new Character(name, type);
     expect(result).toEqual(expected);
@@ -19,12 +16,12 @@ test.each([
 );
 
 test.each([
-  ['error "name less than 2 letters"', 'P', CLASSES[0].className],
-  ['error "name more than 10 letters"', 'SuperPlayer', CLASSES[0].className],
-  ['error "name not string"', 777, CLASSES[0].className],
-  ['error "envalid type"', 'Player1', 'anyType'],
+  ['create class with error "name less than 2 letters"', 'P', 'Daemon'],
+  ['create class with error "name more than 10 letters"', 'SuperPlayer', 'Daemon'],
+  ['create class with error "name not string"', 777, 'Daemon'],
+  ['create class with error "envalid type"', 'Player1', 'anyType'],
 ])(
-  ('should  get %s by name %s and type %s'),
+  ('should %s by name %s and type %s'),
   (option, name, type) => {
     expect(() => {
       // eslint-disable-next-line no-unused-vars,

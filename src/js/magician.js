@@ -1,9 +1,11 @@
 import Character from './character';
-import { CLASSES } from './classes';
+import { characterType } from './classes';
 
 // eslint-disable-next-line no-unused-vars
 export default class Magician extends Character {
   constructor(name) {
-    super(name, CLASSES[2].className);
+    super(name, characterType.Magician);
+    this.attack = 10;
+    this.defence = 40;
   }
 }

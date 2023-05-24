@@ -1,19 +1,19 @@
-import { CLASSES } from '../classes';
+import { characterType } from '../classes';
 import Magician from '../magician';
 
 test.each([
-  ['create class Magician', 'Player1', {
+  ['create class Magician', 'Player1', 'Magician', {
     name: 'Player1',
-    type: CLASSES[2].className,
+    type: characterType.Magician,
     health: 100,
     level: 1,
-    attack: CLASSES[2].attack,
-    defence: CLASSES[2].defence,
+    attack: 10,
+    defence: 40,
   }],
 ])(
   ('should %s by name %s and type %s'),
-  (option, name, expected) => {
-    const result = new Magician(name);
+  (option, name, type, expected) => {
+    const result = new Magician(name, type);
     expect(result).toEqual(expected);
   },
 );
